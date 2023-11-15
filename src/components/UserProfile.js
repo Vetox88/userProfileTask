@@ -7,13 +7,7 @@ import { headerTextStyle, formContainerStyle, buttonContainerStyle, dividerStyle
 const PersonalInfo = () => {
   const [editMode, setEditMode] = useState(false);
 
-  const [formData, setFormData] = useState({
-    firstName: 'Angus',
-    lastName: 'Ward',
-    phone: '4510203040',
-    email: 'angus-ward862@hessel-greenfelder.dk',
-    birthday: '1990-10-09',
-  });
+  const [formData, setFormData] = useState([]);
 
   useEffect(() => {
     const savedData = localStorage.getItem('personalInfoData');

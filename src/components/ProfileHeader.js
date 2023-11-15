@@ -16,6 +16,7 @@ import {
 } from "../styles/ProfilePicture";
 import PersonIcon from "@mui/icons-material/Person";
 import DeleteDialog from "../features/DeleteDialog";
+import theme from '../theme'
 
 const Header = () => {
   const [profilePicture, setProfilePicture] = useState(() => {
@@ -62,7 +63,7 @@ const Header = () => {
               </Avatar>
             </div>
             <div style={textContainer}>
-              <Typography color="#252733" variant="body1" sx={h1}>
+              <Typography color={theme.palette.secondary.main} variant="body1" sx={h1}>
                 Profile
               </Typography>
               <Typography variant="body1" sx={description}>

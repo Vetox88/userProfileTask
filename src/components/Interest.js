@@ -24,7 +24,9 @@ const initialInterests = [
 
 const InterestsSection = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [selectedInterests, setSelectedInterests] = useState([]);
+  const [selectedInterests, setSelectedInterests] = useState(
+    JSON.parse(localStorage.getItem('selectedInterests')) || []
+  );
 
   const handleAddMoreClick = () => {
     setDialogOpen(true);
@@ -35,7 +37,11 @@ const InterestsSection = () => {
   };
 
   const handleInterestSelect = (interest) => {
-    setSelectedInterests((prevInterests) => [...prevInterests, interest]);
+    const newInterests = [...selectedInterests, interest];
+    setSelectedInterests(newInterests);
+
+    localStorage.setItem('selectedInterests', JSON.stringify(newInterests));
+
     setDialogOpen(false);
   };
 
@@ -59,6 +65,8 @@ const InterestsSection = () => {
               setSelectedInterests((prevInterests) =>
                 prevInterests.filter((i) => i !== interest)
               );
+              // Update local storage when an interest is deleted
+              localStorage.setItem('selectedInterests', JSON.stringify(selectedInterests));
             }}
             sx={chipStyle}
           />
