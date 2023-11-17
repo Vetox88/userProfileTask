@@ -65,7 +65,6 @@ const InterestsSection = () => {
               setSelectedInterests((prevInterests) =>
                 prevInterests.filter((i) => i !== interest)
               );
-              // Update local storage when an interest is deleted
               localStorage.setItem('selectedInterests', JSON.stringify(selectedInterests));
             }}
             sx={chipStyle}
